@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubhabas | Portfolio</title>
+    <link rel="icon" type="image/png" href="images/LA.png">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="function.js"></script>
+</head>
+<body>
+
+<header class="header">
+    <h2 class="logo">Shubhabas Patra</h2>
+
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="#" class="navbar-link">Home</a></li>
+            <li><a href="#skills-section" class="navbar-link">About</a></li>
+            <li><a href="#contact-section" class="navbar-link">Contact us</a></li>
+        </ul>
+    </nav>
+    <div class="menubar">
+        <img src="images/menu.svg" alt="Menu icon for mobile navigation" class="mobile-nav-icon menu-open-icon">
+        <img src="images/out.svg" alt="Close menu icon for mobile navigation" class="mobile-nav-icon menu-close-icon">
+    </div>
+</header>
+
+<main>
+    <!-- Home Section -->
+    <section class="section-home" id="home-section">
+        <div class="container grid grid-two-column">
+            <div class="section-home-data">
+                <p class="home-top-data-upper">This is me</p>
+                <h1 class="home-heading">Shubhabas Patra</h1>
+                <p class="home-top-data-down">I’m a frontend developer with strong skills in Java and Data Structures & Algorithms.
+                This portfolio highlights my projects, coding expertise, and problem-solving abilities.</p>
+                <div>
+                    <a href="#contact-section" class="btn">Hire me</a>
+                </div>
+            </div>
+            <div class="section-home-img">
+                <img class="home-img" src="images/luckyimg1.jpg" alt="Shubhabas profile image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-biodata section" id="skills-section">
+        <div class="container grid grid-two-column">
+            <div class="bio-img">
+                <img src="images/skill-img.svg" alt="Illustration of skills and progress">
+            </div>
+
+            <div class="skill-data">
+                <h2 class="common-heading">My Skills</h2>
+                <p>Skilled in creating responsive, user-friendly web interfaces using modern frontend technologies.
+                Proficient in Java and DSA for building efficient, scalable solutions.</p>
+
+                <div class="bio-data-stats">
+                    <div class="bio-stats">
+                        <h3>DSA In Java</h3>
+                        <div class="bio-progress-bar bio-progress-1">
+                            <span>80%</span>
+                        </div>
+                    </div>
+            
+                    <div class="bio-stats">
+                        <h3>Java Script</h3>
+                        <div class="bio-progress-bar bio-progress-2">
+                            <span>60%</span>
+                        </div>
+                    </div>
+            
+                    <div class="bio-stats">
+                        <h3>HTML & CSS</h3>
+                        <div class="bio-progress-bar bio-progress-3">
+                            <span>95%</span>
+                        </div>
+                    </div>
+        
+                    <div class="bio-stats">
+                        <h3>Wordpress</h3>
+                        <div class="bio-progress-bar bio-progress-4">
+                            <span>90%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bio-stats">
+                        <h3>Tailwind CSS & Bootstrap</h3>
+                        <div class="bio-progress-bar bio-progress-5">
+                            <span>92%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-data-btn">
+                    <a href="#" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Form -->
+    <section class="section section-contact" id="contact-section">
+        <div class="container">
+            <h2 class="common-heading">Get in Touch</h2>
+            <p class="con-text">Feel free to reach out for collaborations or inquiries!</p>
+
+            <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

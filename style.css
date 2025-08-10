@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700&family=Work+Sans:wght@100;200;300;400&display=swap');
+
+/* Basic Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif; /* Default font */
+}
+
+:root {
+    --heading: rgb(0, 8, 17); /* Adjusted to a valid RGB color */
+    --black: black;
+    --para: #777;
+    --para-tint: #a8a8a8;
+    --white: #fff;
+    --helper: rgb(0, 8, 17); /* Keeping helper consistent with heading */
+    --helper-tint: #f3f4ff;
+    --bg: rgb(249, 249, 255); /* Re-added for background */
+    --shadow: 0px 0px 20px 0px rgba(132, 144, 255, 0.2); /* Use rgba for consistent shadow */
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--heading); /* Apply heading color */
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+p {
+    color: var(--para); /* Corrected from font-variant */
+    line-height: 1.6;
+    font-size: 1.7rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =================================================
+=================== Header / Navbar ================= */
+
+.logo {
+    font-size: 2.4rem;
+    color: var(--white);
+    margin-top: 40px;
+}
+
+.header {
+    padding: 0 4.8rem;
+    height: 8rem;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Make header sticky */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Ensure it's above other content */
+    box-shadow: var(--shadow); /* Add shadow for better separation */
+}
+
+.logo {
+    height: 90%;
+    /* Optimization: If logo is SVG, ensure it's optimized. If PNG/JPG, compress it. */
+}
+
+.navbar-list {
+    display: flex;
+    gap: 4.8rem;
+    list-style: none; /* Remove bullet points */
+}
+
+.navbar-link:link,
+.navbar-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s linear;
+}
+
+.navbar-link:hover,
+.navbar-link:active {
+    color: var(--para-tint);
+}
+
+/* Mobile Navigation Icons */
+.menubar {
+    display: none; /* Hidden by default on desktop */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menubar .mobile-nav-icon {
+    width: 3.5rem; /* Adjust size as needed */
+    height: 3.5rem;
+    color: var(--white); /* For SVG icons, you might need fill property */
+}
+
+.menu-close-icon {
+    display: none; /* Hidden by default, toggled by JS */
+}
+
+/* =======================
+        Reusable code
+   ======================== */
+
+.section {
+    padding: 9rem 0; /* Consistent vertical padding */
+    margin-top: 8rem; /* To prevent content from being hidden by fixed header */
+}
+
+.container {
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 0 2rem; /* Add horizontal padding for smaller screens */
+}
+
+.grid {
+    display: grid;
+    gap: 3.2rem; /* Consistent gap for grid items */
+}
+
+.grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four-column {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn {
+    background: linear-gradient(to right, #243B55, #141E30);
+    padding: 1.2rem 3rem; /* Slightly larger padding for better touch targets */
+    border: none;
+    color: var(--white);
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover, .btn:active {
+    box-shadow: 0 1rem 2rem 0 rgba(100, 100, 100, 0.3); /* Adjusted shadow for subtlety */
+}
+
+.common-heading {
+    font-size: 4rem; /* Adjusted for better hierarchy */
+    font-weight: 600;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    position: relative;
+    text-align: center; /* Center headings */
+}
+
+.common-heading::after {
+    content: "";
+    position: absolute;
+    top: 130%;
+    left: 50%; /* Center the underline */
+    transform: translateX(-50%); /* Center the underline */
+    width: 15rem; /* Slightly shorter underline */
+    background-color: var(--helper);
+    height: 0.3rem;
+}
+
+/* ========================
+        HOME SECTION
+============================ */
+
+.section-home {
+    background-color: var(--bg);
+    /* margin-top: 10rem; - Handled by section padding and header height */
+    padding-top: 10rem; /* Add more top padding to push content down from sticky header */
+}
+
+.section-home-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align text to start */
+    padding-right: 2rem; /* Add some padding to the right */
+}
+
+.home-top-data-upper {
+    font-size: 1.8rem;
+    color: var(--para);
+    margin-bottom: 1rem;
+}
+
+.home-img {
+    max-width: 100%; /* Ensure image scales within its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: 8px;
+    box-sizing: border-box;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.section-home-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-heading {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 5.8rem; /* Slightly adjusted */
+    margin-bottom: 2rem;
+}
+
+.home-top-data-down {
+    /* text-transform: uppercase; -- This makes text hard to read, usually avoid for body text */
+    font-weight: 400; /* Adjusted for better readability */
+    font-size: 1.6rem;
+    color: var(--para-tint);
+    margin-bottom: 3rem;
+}
+
+/* ========================
+        Bio-Data & Skill
+============================ */
+
+.section-biodata {
+    background-color: var(--white); /* Ensure distinct background */
+    padding-bottom: 5rem; /* Adjust padding */
+}
+
+.bio-img img {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto;
+    margin-top: 0; /* Remove fixed margin-top */
+    /* Adjust margin-top for visual alignment if needed, or use grid alignment */
+    align-self: center; /* Vertically center in grid */
+}
+
+.skill-data {
+    padding-left: 2rem; /* Add some padding to the left */
+}
+
+.bio-data-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Slightly increased gap for better separation */
+    padding: 3.2rem 0;
+}
+
+.bio-progress-bar {
+    width: 95%; /* Make progress bars slightly wider */
+    height: 1.2rem; /* Slightly thicker */
+    background-color: #e0e0e0; /* Lighter background for empty part */
+    border-radius: 10rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Inner shadow for depth */
+    position: relative;
+    overflow: hidden; /* Ensure content stays within border-radius */
+}
+
+.bio-stats h3 {
+    margin-bottom: 0.8rem;
+    font-size: 2rem; /* Slightly larger skill headings */
+}
+
+.bio-progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradient for progress */
+    border-radius: 10rem;
+    transition: width 0.8s ease-in-out; /* Smooth animation for progress */
+}
+
+/* Specific progress bar widths */
+.bio-progress-1::before { width: 60%; }
+.bio-progress-2::before { width: 75%; }
+.bio-progress-3::before { width: 95%; } /* Corrected to 95% as per HTML */
+.bio-progress-4::before { width: 90%; }
+.bio-progress-5::before { width: 92%; } /* Corrected to 92% as per HTML */
+
+.bio-progress-bar span {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--white);
+    font-weight: bold;
+    z-index: 1; /* Ensure text is above the progress fill */
+}
+
+.bio-data-btn {
+    margin-top: 3rem; /* Space below skill bars */
+}
+
+/* =======================
+    Portfolio Section
+   ======================== */
+
+.section-portfolio {
+    background-color: var(--bg);
+    text-align: center; /* Center text within this section */
+}
+
+.section-portfolio .container p {
+    max-width: 80rem; /* Give paragraph some breathing room */
+    margin: 0 auto 5rem auto; /* Center and add bottom margin */
+}
+
+.p-btns {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to next line on smaller screens */
+    justify-content: center; /* Center buttons */
+    gap: 1.5rem; /* Reduced gap for smaller screens */
+    margin: 5rem auto; /* Center buttons horizontally */
+    max-width: 100rem; /* Max width for button row */
+}
+
+.p-btns .btn {
+    padding: 1rem 2rem; /* Adjusted padding for buttons */
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+.p-btns .btn.active-btn {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Distinct active color */
+    color: var(--white);
+    box-shadow: var(--shadow);
+    transform: translateY(-0.5rem); /* Lift active button slightly */
+}
+
+.portfolio-images {
+    gap: 2.5rem; /* Adjusted gap for portfolio grid */
+    margin-top: 6.4rem;
+}
+
+.img-ovelay {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: var(--shadow); /* Add shadow to cards */
+    display: none; /* Hidden by default for filtering */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition for show/hide */
+    transform: scale(0.95); /* Start slightly smaller for transition */
+    opacity: 0; /* Start hidden */
+}
+
+.img-ovelay.active {
+    display: block; /* Change from block to flex or grid-item if needed for actual layout */
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* For grid-three-column, ensure items behave correctly */
+.portfolio-images .img-ovelay.active {
+    display: block; /* The JS will toggle display. For grid, it still occupies space. */
+    /* If you want actual grid re-flow, you'd need to manipulate grid-template-columns or use flexbox */
+}
+
+
+.portfolio-images img {
+    width: 100%;
+    height: 25rem; /* Fixed height for consistent card size */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-radius: 7px;
+    display: block; /* Remove extra space below image */
+}
+
+.img-ovelay .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 32, 57, 0.9); /* Use rgba for transparency directly */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    opacity: 0; /* Start hidden */
+    transition: all 0.4s ease; /* Faster transition for overlay */
+    border-radius: 7px;
+    flex-direction: column; /* Stack link and text if needed */
+}
+
+.img-ovelay:hover > .overlay {
+    opacity: 1; /* Fully visible */
+    transform: translatey(0);
+    cursor: pointer;
+}
+
+.project-para {
+    font-size: 2.5rem; /* Adjusted for better fit */
+    font-weight: 600;
+    color: white;
+    margin: 0; /* Remove unnecessary margin */
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem; /* Padding for text inside overlay */
+}
+
+
+.p-images-not-active {
+    display: none; 
+}
+
+.con-text{
+    text-align: center;
+}
+
+/* ===========================================
+    Responsive Design Media Queries
+======================================= */
+
+/* Tablet View (e.g., up to 998px) */
+@media (max-width: 998px) {
+    html {
+        font-size: 56.25%; 
+    }
+
+    .header {
+        padding: 0 2.4rem;
+    }
+
+    .navbar {
+        /* Hide navbar on tablet/mobile and show when menu is open */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--black);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%); 
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .navbar-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .navbar-link:link,
+    .navbar-link:visited {
+        font-size: 2.2rem; 
+    }
+
+    .active .navbar { 
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .menubar {
+        display: block; 
+        z-index: 1000; 
+    }
+
+    .active .menu-open-icon { display: none; }
+    .active .menu-close-icon { display: block; }
+
+
+    .section {
+        padding: 6rem 0; 
+    }
+
+    .container {
+        padding: 0 1.5rem; 
+    }
+
+    .grid-two-column,
+    .grid-three-column {
+        grid-template-columns: 1fr; 
+    }
+
+    .section-home-data {
+        align-items: center; 
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .home-heading {
+        font-size: 4.5rem;
+    }
+
+    .section-home-img {
+        margin-top: 3rem; 
+    }
+
+    .bio-img img {
+        margin-bottom: 3rem; 
+    }
+
+    .skill-data {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .common-heading {
+        font-size: 3.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .p-btns {
+        flex-direction: column; 
+        gap: 1rem;
+    }
+
+    .portfolio-images {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Mobile View (e.g., up to 576px) */
+@media (max-width: 576px) {
+    html {
+        font-size: 50%; 
+    }
+
+    .header {
+        height: 6rem; 
+    }
+
+    .logo {
+        height: 70%;
+    }
+
+    .section-home-data {
+        order: 2; 
+    }
+    .section-home-img {
+        order: 1;
+        margin-bottom: 3rem;
+    }
+
+    .home-heading {
+        font-size: 3.5rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+    }
+
+    .section-biodata .common-heading {
+        margin-bottom: 2rem;
+    }
+
+    .portfolio-images {
+        grid-template-columns: 1fr; 
+    }
+
+    .p-btns {
+        width: 90%; 
+    }
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+/* Contact foam */
+
+
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007BFF;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
